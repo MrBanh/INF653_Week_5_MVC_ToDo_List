@@ -1,14 +1,8 @@
 <?php
 require_once('database.php');
+require_once('model/item_db.php');
+require_once('model/category_db.php');
 
-// Get category ID
-if (!isset($category_id)) {
-    $category_id = filter_input(INPUT_GET, 'category_id',
-            FILTER_VALIDATE_INT);
-    if ($category_id == NULL || $category_id == FALSE) {
-        $category_id = 1;
-    }
-}
 
 ?>
     <h1>Product List</h1>
