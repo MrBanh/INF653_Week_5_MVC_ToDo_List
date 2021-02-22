@@ -43,7 +43,7 @@
                             <form class="delete_item" action="." method="POST">
                                 <input type="hidden" name="action" value="delete_item">
                                 <input type="hidden" name="itemNum" value="<?= $itemNum ?>">
-                                <button class="delete_item_btn">Remove</button>
+                                <button class="delete_btn">Remove</button>
                             </form>
                         </td>
                     </tr>
@@ -55,6 +55,6 @@
     </div>
 
     <p><a href="?action=add_item_form">Click here</a> to add a new item to the list.</p>
-    <p><a href="?action=add_category_form">View/Edit Categories</a></p>
+    <p><a href="?action=category_list">View/Edit Categories</a></p>
 </section>
 <?php include('footer.php'); ?>
