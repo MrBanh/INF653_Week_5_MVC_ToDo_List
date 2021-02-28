@@ -23,10 +23,34 @@ switch ($action) {
         include('view/item_list.php');
         break;
 
-    // TODO: add item
-    // TODO: delete item
-    case 'add_item':
+    case 'add_item_form':
+        $category_list = get_categories();
+        include('view/add_item_form.php');
+        break;
 
+    case 'add_item':
+        $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+        $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+        $categoryID = filter_input(INPUT_POST, 'categoryID', FILTER_VALIDATE_INT);
+
+        if ($title && $description && $categoryID) {
+            $count = add_todo($title, $description, $categoryID);
+            header("Location: .?added_item={$count}");
+        } else {
+            $error_message = 'Invalid to do data.';
+            include('view/error.php');
+        }
+        break;
+
+    case 'delete_item':
+        $itemNum = filter_input(INPUT_POST, 'itemNum', FILTER_VALIDATE_INT);
+        if ($itemNum) {
+            $count = delete_todo($itemNum);
+            header("Location: .?deleted_item={$count}");
+        } else {
+            $error_message = 'Invalid to do data';
+            include('view/error.php');
+        }
         break;
 
     case 'category_list':

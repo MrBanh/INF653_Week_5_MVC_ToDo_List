@@ -14,7 +14,7 @@
             <option value="<?= $id ?>" <?php echo (isset($categoryID) && $categoryID == $id ? 'selected' : '') ?>><?= $categoryName ?></option>
             <?php } ?>
         </select>
-        <button class="filter_btn">Submit</button>
+        <button class="submit_btn">Submit</button>
     </form>
 
     <div class="item_list_container">
