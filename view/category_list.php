@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
     <section class="category_list">
     <h2>Category List</h2>
-    <div class="category_list_container">
+    <div class="list_container">
         <?php if (!empty($category_list)) { ?>
             <table>
                 <tr>
@@ -17,7 +17,7 @@
                     <tr>
                         <td><?= $categoryName ?></td>
                         <td>
-                            <form class="delete_category" action="." method="POST">
+                            <form class="delete_form" action="." method="POST">
                                 <input type="hidden" name="action" value="delete_category">
                                 <input type="hidden" name="categoryID" value="<?= $categoryID ?>">
                                 <button class="delete_btn">Remove</button>
