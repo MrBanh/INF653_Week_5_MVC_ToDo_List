@@ -18,8 +18,7 @@
         $statement->execute();
         $category = $statement->fetch();
         $statement->closeCursor();
-        $categoryName = $category['categoryName'];
-        return $categoryName;
+        return $category['categoryName'] ?? null;
     }
 
     function add_category($categoryName) {
