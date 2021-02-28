@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
     <section class="add_item_form">
     <h2>Add Item</h2>
-    <form action="." method="POST">
+    <form action="." method="POST" class="add_form">
         <input type="hidden" name="action" value="add_item">
 
         <div class="form_container">
@@ -31,7 +31,10 @@
             </div>
         </div>
 
-        <button class="add_btn">Add Item</button>
+        <div class="form_group">
+            <div></div>
+            <button class="submit_btn">Add Item</button>
+        </div>
     </form>
     <p><a href=".">View To Do List</a></p>
 </section>

@@ -1,15 +1,25 @@
 /* the styles for the html elements */
+:root {
+	--title-color: rgb(208, 133, 4);
+	--button-color: #4169e2;
+	--button-2-color: #ff4500;
+	--link-color: #5572cd;
+	--link-2-color: rgb(208, 133, 4);
+}
+
 html {
 	background-color: rgb(192, 192, 192);
+	display: flex;
+	height: 100%;
 }
 body {
-	margin-top: 0;
 	font-family: Arial, Helvetica, sans-serif;
-	width: 760px;
-	margin: 0 auto;
+	max-width: 760px;
+	width: 100%;
+	margin: auto;
 	background-color: white;
 	border: 1px solid black;
-	padding: .5em 2em;
+	padding: .5em 1.5em;
 }
 header {
 	margin: 0;
@@ -23,26 +33,14 @@ header h1 {
 main {
 	margin: 0;
 }
-aside {
-	float: left;
-	width: 150px;
+select {
+	width: auto;
+	margin-right: auto;
 }
-nav ul {
-	list-style-type: none;
-	margin-left: 0;
-	padding-left: 0;
-}
-nav ul li {
-	padding-bottom: 0.5em;
-}
-section {
-	float: left;
-	width: 500px;
-	padding-bottom: 1.5em;
-}
+
 footer {
 	clear: both;
-	margin-top: 1em;
+	margin-bottom: 1.5em;
 	border-top: 2px solid black;
 }
 footer p {
@@ -62,26 +60,19 @@ h2 {
 }
 h1,
 h2 {
-	color: rgb(208, 133, 4);
-}
-ul {
-	margin: 0 0 1em 0;
-	padding: 0 0 0 2.5em;
-}
-li {
-	margin: 0;
-	padding: 0;
+	color: var(--title-color);
 }
 a {
-	color: rgb(41, 64, 124);
+	color: var(--link-color);
 	font-weight: bold;
 }
 a:hover {
-	color: rgb(208, 133, 4);
+	color: var(--link-2-color);
 }
 table {
 	border: 1px solid black;
 	border-collapse: collapse;
+	width: 100%;
 }
 td,
 th {
@@ -90,40 +81,79 @@ th {
 	vertical-align: top;
 	text-align: left;
 }
+th {
+	border-right: none;
+}
 form {
 	margin: 0;
 }
 br {
 	clear: left;
 }
-/* the styles for classes */
-.right {
-	text-align: right;
-}
-.last_paragraph {
-	margin-bottom: 2em;
-}
-.margin_top_increase {
-	margin-top: 1em;
+
+/* Item / Category List */
+.list_container {
+	width: 100%;
+	margin-bottom: 1.5rem;
 }
 
-/* TODO: Styling */
+.item_list .list_container {
+	border: 1px solid black;
+	overflow-y: scroll;
+	height: 50vh;
+}
 
-/********************************************************************
-* Additional styles for the Product Manager application
-********************************************************************/
-#add_product_form {
-	margin: .5em 0 1em;
+.filter_item_list {
+	margin: 1.5rem 0;
 }
-#add_product_form label {
-	width: 6em;
-	padding-right: 1em;
-	padding-bottom: .5em;
-	float: left;
+
+.delete_form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-#add_product_form input {
-	float: left;
+
+/* Buttons */
+button {
+	border-radius: .5rem;
+	padding: 6px;
+	min-width: 48px;
+	cursor: pointer;
+	color: white;
+	border: 1px solid white;
+	box-shadow: 2px 2px 2px black;
+	outline: none;
+	transition: box-shadow 200ms linear;
 }
-#add_product_form input[text] {
-	width: 15em;
+
+button:hover,
+button:focus {
+	box-shadow: none;
+}
+
+button.submit_btn {
+	background-color: var(--button-color);
+}
+
+button.delete_btn {
+	background-color: var(--button-2-color);
+}
+
+/* Styling for add item/category form */
+.add_form {
+	display: inline-block;
+}
+
+.add_form .submit_btn {
+	margin-right: auto;
+}
+
+.form_group {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	margin: .5rem 0;
+}
+
+.form_field {
+	border: 1px solid rgba(0, 0, 0, .3);
 }
