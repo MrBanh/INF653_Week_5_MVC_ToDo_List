@@ -1,7 +1,9 @@
 <?php
-    $dsn = 'mysql:host=lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=po05qwrstus3lqef';
-    $username = 'rahry4259ykbayrv';
-    $password = 'xnytpzul5bviio06';
+    $host = getenv('SQL_HOST');
+    $dbname = getenv('SQL_DB');
+    $dsn = "mysql:host={$host};dbname={$dbname}";
+    $username = getenv('SQL_USER');
+    $password = getenv('SQL_PW');
 
     try {
 //         $db = new PDO($dsn, $username);      // without password
